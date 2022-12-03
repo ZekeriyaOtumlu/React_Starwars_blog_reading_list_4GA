@@ -22,3 +22,4 @@ export default function Character() {
   return <h1>{info?.properties?.name}</h1>;
 }
 //{!info && info.properties.name} OR {info?.properties?.name}
+//? it means if info is exist. optional
