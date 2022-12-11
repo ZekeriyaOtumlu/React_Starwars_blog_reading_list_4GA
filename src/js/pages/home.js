@@ -31,6 +31,31 @@ import { getPlanet, getAllPlanets, getCharacter, getAllCharacters } from "../swa
     </div>
   )
 }
+
+function Space() {
+  let [planets, SetPlanets] = useState();
+
+useEffect(()=> {
+  async function settingInfo(){
+    let planetInfo = await getAllPlanets();
+    // getCharacter(planetid)
+    SetPlanets(planetInfo)
+    // console.log(characterInfo);
+}
+settingInfo()    
+}, [])
+return (
+  <div>
+      {planets?.map((planet) => {
+          console.log(planet)
+          return <div>
+              <h1>{planet.name}</h1>
+              <Link to={"/planet/"+planet.uid}>Learn More</Link>
+          </div>
+      })}
+  </div>
+)
+}
 //{!info && info.properties.name} OR {info?.properties?.name}
 //? it means if info is exist. optional
-export  {Home}
+export  {Home, Space}
